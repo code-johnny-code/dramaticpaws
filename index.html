@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dramatic Paws — Cat Café • Eureka Springs</title>
+
+    <!-- SEO / Social -->
+    <meta name="description" content="Dramatic Paws is a cozy cat café in downtown Eureka Springs. A calm, comforting space to slow down, sip something warm, and sit with cats for a while. Opening soon." />
+    <meta property="og:title" content="Dramatic Paws — Cat Café • Eureka Springs" />
+    <meta property="og:description" content="A cozy, comforting space to relax and sit with cats for a while. Opening soon." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://dramaticpaws.com/og-image.jpg" />
+    <meta property="og:url" content="https://dramaticpaws.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Favicon (inline SVG paw) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='%23553c2b'%3E%3Ccircle cx='16' cy='20' r='7'/%3E%3Ccircle cx='32' cy='16' r='7'/%3E%3Ccircle cx='48' cy='20' r='7'/%3E%3Cpath d='M32 28c-8.8 0-16 5.8-16 13 0 5.5 4.5 10 10 10h12c5.5 0 10-4.5 10-10 0-7.2-7.2-13-16-13z'/%3E%3C/g%3E%3C/svg%3E" />
+
+    <style>
+      :root {
+        --bg: #fff9f5;          /* warm cream */
+        --ink: #2b211a;         /* deep cocoa */
+        --muted: #6b5a4f;       /* soft mocha */
+        --accent: #d6a68a;      /* blush chai */
+        --accent-2: #b28b75;    /* cinnamon */
+        --card: #ffffffcc;      /* glassy white */
+        --ring: #f0e4dc;        /* light outline */
+      }
+
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: "Nunito", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+        color: var(--ink);
+        background: radial-gradient(1200px 800px at 20% -10%, #ffeadd 0%, rgba(255,234,221,0) 60%),
+                    radial-gradient(1000px 700px at 120% 20%, #f6e7dc 0%, rgba(246,231,220,0) 60%),
+                    var(--bg);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      /* Subtle paw-print pattern */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(circle at 20px 20px, rgba(178,139,117,0.12) 10px, transparent 11px),
+          radial-gradient(circle at 50px 25px, rgba(178,139,117,0.10) 6px, transparent 7px),
+          radial-gradient(circle at 34px 46px, rgba(178,139,117,0.10) 7px, transparent 8px),
+          radial-gradient(circle at 16px 48px, rgba(178,139,117,0.10) 8px, transparent 9px);
+        background-size: 120px 120px;
+        opacity: .25;
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.7));
+      }
+
+      .wrap {
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 4rem 1.25rem;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 880px;
+        background: var(--card);
+        backdrop-filter: blur(8px) saturate(1.05);
+        -webkit-backdrop-filter: blur(8px) saturate(1.05);
+        border: 1px solid var(--ring);
+        border-radius: 28px;
+        box-shadow: 0 20px 60px rgba(43,33,26,0.12);
+        padding: 2.25rem clamp(1.25rem, 3vw, 2.25rem);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        padding: .5rem .85rem;
+        border-radius: 999px;
+        border: 1px solid var(--ring);
+        background: #fffdfc;
+        font-weight: 600;
+        font-size: .9rem;
+        color: var(--muted);
+      }
+
+      .logo {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        column-gap: .9rem;
+        align-items: center;
+        margin: 1.25rem 0 1.75rem;
+      }
+      .mark { grid-row: span 2; }
+      .name { font-family: "Playfair Display", ui-serif, Georgia, serif; font-weight: 700; font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.05; letter-spacing: .2px; }
+      .tag  { color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.125rem); }
+
+      .lead {
+        font-size: clamp(1.05rem, 2.6vw, 1.175rem);
+        line-height: 1.65;
+        margin: 1rem 0 1.25rem;
+        color: #3b2f28;
+      }
+
+      .cta-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.0rem; }
+      .btn {
+        --shadow: 0 10px 24px rgba(214,166,138,.35);
+        appearance: none; border: 0; cursor: pointer;
+        padding: .9rem 1.1rem; border-radius: 14px;
+        font-weight: 700; letter-spacing: .2px;
+        display: inline-flex; align-items: center; gap: .6rem;
+        box-shadow: var(--shadow);
+        background: linear-gradient(180deg, var(--accent), var(--accent-2));
+        color: #fff; text-decoration: none;
+        transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+      }
+      .btn:hover { transform: translateY(-1px); filter: brightness(1.02); box-shadow: 0 14px 30px rgba(214,166,138,.45); }
+      .btn:active { transform: translateY(0); box-shadow: var(--shadow); }
+
+      .btn.secondary {
+        background: #fff; color: var(--ink);
+        box-shadow: 0 6px 16px rgba(43,33,26,.08);
+        border: 1px solid var(--ring);
+      }
+      .btn svg { width: 20px; height: 20px; }
+
+      .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+      .chip { font-size: .9rem; padding: .45rem .7rem; border: 1px dashed var(--ring); border-radius: 999px; color: var(--muted); background: #fffdfc; }
+
+      footer { margin-top: 2rem; font-size: .95rem; color: var(--muted); display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+      footer a { color: inherit; }
+
+      /* Floating paw ornament */
+      .paw {
+        position: absolute; right: -40px; bottom: -40px; width: 220px; opacity: .15;
+        transform: rotate(-12deg);
+        animation: float 8s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,100% { transform: translateY(0) rotate(-12deg); }
+        50%     { transform: translateY(-8px) rotate(-12deg); }
+      }
+
+      /* Respect reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .paw { animation: none; }
+        .btn { transition: none; }
+      }
+
+      /* Small screens */
+      @media (max-width: 420px) {
+        .cta-row { flex-direction: column; }
+      }
+    </style>
+
+    <!-- LocalBusiness Schema (fill fields as you wish) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CafeOrCoffeeShop",
+      "name": "Dramatic Paws",
+      "url": "https://dramaticpaws.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Eureka Springs",
+        "addressRegion": "AR",
+        "addressCountry": "US"
+      },
+      "servesCuisine": ["Coffee", "Tea", "Pastries"],
+      "description": "A cozy cat café in downtown Eureka Springs. Opening soon."
+    }
+    </script>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card" aria-labelledby="site-title">
+        <span class="badge" aria-label="Opening soon">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Opening Soon
+        </span>
+
+        <header class="logo">
+          <svg class="mark" width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dramatic Paws logo">
+            <g fill="none" stroke="#2b211a" stroke-width="2.5">
+              <circle cx="16" cy="20" r="9" fill="#fff"/>
+              <circle cx="32" cy="15" r="9" fill="#fff"/>
+              <circle cx="48" cy="20" r="9" fill="#fff"/>
+              <path d="M32 29c-10.4 0-19 6.9-19 15.6C13 51.7 18.7 57 25.6 57h12.8C45.3 57 51 51.7 51 44.6 51 35.9 42.4 29 32 29Z" fill="#fff"/>
+            </g>
+          </svg>
+          <div class="name" id="site-title">Dramatic Paws</div>
+          <div class="tag">A cozy cat café in downtown Eureka Springs</div>
+        </header>
+
+        <p class="lead">
+          A calm, comforting space to slow down, sip something warm, and spend unhurried time with friendly felines. We’re getting the space purr‑fect and can’t wait to welcome you.
+        </p>
+
+        <div class="cta-row" role="group" aria-label="Actions">
+          <!-- TODO: Replace href with your preferred interest form or email address -->
+          <a class="btn" href="#subscribe" id="notifyBtn">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-15.5 0 4 4 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Get opening updates
+          </a>
+          <a class="btn secondary" href="#visit" id="visitBtn">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3"/></svg>
+            Downtown • Eureka Springs, AR
+          </a>
+        </div>
+
+        <div class="chips" aria-label="What to expect">
+          <span class="chip">Quiet corners</span>
+          <span class="chip">Warm drinks</span>
+          <span class="chip">Cat time</span>
+          <span class="chip">Good company</span>
+        </div>
+
+        <!-- Decorative paw in corner -->
+        <svg class="paw" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="#2b211a">
+            <circle cx="16" cy="20" r="9"/>
+            <circle cx="32" cy="15" r="9"/>
+            <circle cx="48" cy="20" r="9"/>
+            <path d="M32 29c-10.4 0-19 6.9-19 15.6C13 51.7 18.7 57 25.6 57h12.8C45.3 57 51 51.7 51 44.6 51 35.9 42.4 29 32 29Z"/>
+          </g>
+        </svg>
+
+        <footer>
+          <span>© <span id="year"></span> Dramatic Paws</span>
+          <span aria-hidden="true">•</span>
+          <a href="https://github.com/your-username/your-repo" rel="noopener">Site source</a>
+          <span aria-hidden="true">•</span>
+          <a href="#accessibility" id="accessibilityLink">Accessibility</a>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Lightweight JS for year + simple modals (no external deps) -->
+    <script>
+      (function () {
+        const y = document.getElementById('year');
+        if (y) y.textContent = new Date().getFullYear();
+
+        function openSheet(id, html) {
+          let el = document.getElementById(id);
+          if (!el) {
+            el = document.createElement('div');
+            el.id = id;
+            el.innerHTML = `\n              <div role="dialog" aria-modal="true" aria-label="Dialog" style="position:fixed;inset:0;display:grid;place-items:end center;background:rgba(0,0,0,.25);z-index:50;padding:1rem;">\n                <div style="width:min(720px,100%);background:#fff;border-radius:20px;border:1px solid var(--ring);box-shadow:0 20px 60px rgba(43,33,26,.2);">\n                  <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1rem 0 1.25rem;">\n                    <strong style="font:600 1.05rem Nunito, system-ui">Stay in touch</strong>\n                    <button id="close-` + id + `" aria-label="Close" style="all:unset;cursor:pointer;padding:.25rem .5rem;border-radius:8px">✕</button>\n                  </div>\n                  <div style="padding:0 1.25rem 1.25rem;line-height:1.6;color:#3b2f28">\n                    ${html}\n                  </div>\n                </div>\n              </div>`;
+            document.body.appendChild(el);
+            document.getElementById('close-' + id).addEventListener('click', () => el.remove());
+            el.addEventListener('click', (e) => { if (e.target === el.firstElementChild) el.remove(); });
+          }
+        }
+
+        document.getElementById('notifyBtn')?.addEventListener('click', function (e) {
+          e.preventDefault();
+          openSheet('sheet-sub', `
+            <p>We’re setting up our announcement list. Until then, tap the button below to send us an email and we’ll add you.</p>
+            <p><a class="btn" style="display:inline-flex" href="mailto:hello@dramaticpaws.com?subject=Please%20add%20me%20to%20updates&body=Hi%20Dramatic%20Paws%20team%2C%0A%0APlease%20add%20me%20to%20opening%20updates.%0A%0AName%3A%20%0A%0ACheers!">Email us to join</a></p>
+            <p style="font-size:.95rem;color:var(--muted)">Don’t have email set up? You can also follow social links once we post them here.</p>
+          `);
+        });
+
+        document.getElementById('visitBtn')?.addEventListener('click', function (e) {
+          e.preventDefault();
+          openSheet('sheet-visit', `
+            <p>We’re scouting locations in <strong>downtown Eureka Springs, AR</strong>. Once we sign a lease, we’ll post the exact address and opening timeline.</p>
+            <p style="margin:.75rem 0 0;font-size:.95rem;color:var(--muted)">Got a perfect spot in mind? Email us: <a href="mailto:hello@dramaticpaws.com">hello@dramaticpaws.com</a></p>
+          `);
+        });
+
+        document.getElementById('accessibilityLink')?.addEventListener('click', function (e) {
+          e.preventDefault();
+          openSheet('sheet-a11y', `
+            <p>We designed this page with high contrast, logical heading order, and reduced-motion support.</p>
+            <ul>
+              <li>Press <kbd>Tab</kbd> to navigate buttons and links.</li>
+              <li>Respects <em>prefers-reduced-motion</em> in your system settings.</li>
+              <li>Scales comfortably on mobile, tablet, and desktop.</li>
+            </ul>
+          `);
+        });
+      })();
+    </script>
+  </body>
+</html>
+
